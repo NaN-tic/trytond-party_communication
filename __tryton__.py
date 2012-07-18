@@ -1,5 +1,6 @@
-#This file is part of Tryton.  The COPYRIGHT file at the top level of
-#this repository contains the full copyright notices and license terms.
+#This file is part party_communication module for Tryton.
+#The COPYRIGHT file at the top level of this repository contains 
+#the full copyright notices and license terms.
 {
     'name': 'Party Address Communnication',
     'name_ca_ES': 'Comunicació adresses de tercers',
