@@ -27,20 +27,20 @@ for dep in info.get('depends', []):
 requires.append('trytond >= %s.%s, < %s.%s' %
         (major_version, minor_version, major_version, minor_version + 1))
 
-setup(name='trytond_party_communication',
+setup(name='trytonzz_party_communication',
     version=info.get('version', '0.0.1'),
     description='Tryton module to add communication Party Address',
     author='Zikzakmedia SL',
     author_email='zikzak@zikzakmedia.com',
     url='http://www.zikzakmedia.com',
-    download_url="https://bitbucket.org/zikzakmedia/trytond-party_communication",
-    package_dir={'trytond.modules.party_communication': '.'},
+    download_url="https://bitbucket.org/zikzakmedia/trytonzz-party_communication",
+    package_dir={'trytonzz.modules.party_communication': '.'},
     packages=[
-        'trytond.modules.party_communication',
-        'trytond.modules.party_communication.tests',
+        'trytonzz.modules.party_communication',
+        'trytonzz.modules.party_communication.tests',
     ],
     package_data={
-        'trytond.modules.party_communication': info.get('xml', []) \
+        'trytonzz.modules.party_communication': info.get('xml', []) \
             + ['tryton.cfg', 'locale/*.po'],
     },
     classifiers=[
@@ -63,9 +63,9 @@ setup(name='trytond_party_communication',
     install_requires=requires,
     zip_safe=False,
     entry_points="""
-    [trytond.modules]
-    party_communication = trytond.modules.party_communication
+    [trytonzz.modules]
+    party_communication = trytonzz.modules.party_communication
     """,
     test_suite='tests',
-    test_loader='trytond.test_loader:Loader',
+    test_loader='trytonzz.test_loader:Loader',
 )
