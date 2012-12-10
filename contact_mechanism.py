@@ -12,11 +12,11 @@ __metaclass__ = PoolMeta
 STATES = {
     'readonly': ~Eval('active'),
     }
-DEPENDS = ['active']
 
 
 class ContactMechanism:
     "Contact Mechanism"
     __name__ = 'party.contact_mechanism'
-    address = fields.Many2One('party.address', 'Address', readonly=True,
-        ondelete='CASCADE', states=STATES, select=True, depends=DEPENDS)
+    address = fields.Many2One('party.address', 'Address',
+        domain=[('party', '=', Eval('party'))],
+        ondelete='CASCADE', states=STATES, select=True, depends=['active', 'party'])
