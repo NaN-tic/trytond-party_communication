@@ -2,6 +2,10 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
+msgctxt "field:party.address,contact_mechanism:"
+msgid "Contact Mechanism"
+msgstr "Mitjà de contacte"
+
 msgctxt "field:party.address,email:"
 msgid "E-Mail"
 msgstr "Correu electrònic"
@@ -22,6 +26,14 @@ msgctxt "field:party.address,skype:"
 msgid "Skype"
 msgstr "Skype"
 
+msgctxt "field:party.contact_mechanism,address:"
+msgid "Address"
+msgstr "Adreces"
+
 msgctxt "view:party.address:"
-msgid "Communication"
-msgstr "Mitjans de comunicació"
+msgid "Contact Mechanism"
+msgstr "Mitjà de contacte"
+
+msgctxt "view:party.contact_mechanism:"
+msgid "Contact Mechanisms"
+msgstr "Mitjans de contacte"
