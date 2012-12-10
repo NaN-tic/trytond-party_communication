@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!-- This file is part party_communication module for Tryton.
+The COPYRIGHT file at the top level of this repository contains the full copyright notices and license terms.. -->
+<tryton>
+    <data>
+        <record model="ir.ui.view" id="contact_mechanism_view_tree">
+            <field name="model">party.contact_mechanism</field>
+            <field name="inherit" ref="party.contact_mechanism_view_tree"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <data>
+                    <xpath
+                        expr="/tree/field[@name=&quot;party&quot;]"
+                        position="after">
+                        <field name="address"/>
+                    </xpath>
+                </data>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contact_mechanism_view_tree_sequence">
+            <field name="model">party.contact_mechanism</field>
+            <field name="inherit" ref="party.contact_mechanism_view_tree_sequence"/>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <data>
+                    <xpath
+                        expr="/tree/field[@name=&quot;type&quot;]"
+                        position="before">
+                        <field name="address"/>
+                    </xpath>
+                </data>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contact_mechanism_view_form">
+            <field name="model">party.contact_mechanism</field>
+            <field name="inherit" ref="party.contact_mechanism_view_form"/>
+            <field name="arch" type="xml">
+            <![CDATA[
+            <data>
+                <xpath
+                expr="/form/field[@name='party']"
+                position="after">
+                    <label name="address"/>
+                    <field name="address"/>
+                </xpath>
+            </data>
+            ]]> 
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="contact_mechanism_address_view_form">
+            <field name="model">party.contact_mechanism</field>
+            <field name="inherit" ref="party.contact_mechanism_view_form"/>
+            <field name="arch" type="xml">
+            <![CDATA[
+            <data>
+                <xpath
+                expr="/form/field[@name='party']"
+                position="replace" />
+                <xpath
+                expr="/form/label[@name='party']"
+                position="replace" />
+            </data>
+            ]]> 
+            </field>
+        </record>
+    </data>
+</tryton>
