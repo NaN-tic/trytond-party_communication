@@ -13,20 +13,6 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
                 expr="/form/field[@name='subdivision']"
                 position="after">
                     <newline/>
-                    <separator string="Communication" colspan="6" id="communication"/>
-                    <label name='phone'/>
-                    <field name='phone'/>
-                    <label name='mobile'/>
-                    <field name='mobile'/>
-                    <newline/>
-                    <label name='fax'/>
-                    <field name='fax'/>
-                    <label name='skype'/>
-                    <field name='skype'/>
-                    <newline/>
-                    <label name='email'/>
-                    <field name='email'/>
-                    <separator string="Contact Mechanism" colspan="6" id="contacts"/>
                     <field name="contact_mechanism" colspan="6" view_ids="party_communication.contact_mechanism_view_tree_sequence,party_communication.contact_mechanism_address_view_form"/>
                 </xpath>
             </data>
