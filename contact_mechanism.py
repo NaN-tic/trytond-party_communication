@@ -4,7 +4,6 @@
 from trytond.model import fields
 from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
-from trytond.transaction import Transaction
 
 __all__ = ['ContactMechanism']
 __metaclass__ = PoolMeta
@@ -19,11 +18,13 @@ class ContactMechanism:
     __name__ = 'party.contact_mechanism'
     address = fields.Many2One('party.address', 'Address',
         domain=[('party', '=', Eval('party'))],
-        ondelete='CASCADE', states=STATES, select=True, depends=['active', 'party'])
+        ondelete='CASCADE', states=STATES, select=True,
+        depends=['active', 'party'])
 
     @classmethod
-    def create(cls, values):
-        if values.get('address'):
-            address = Pool().get('party.address')(values.get('address'))
-            values['party'] = address.party
-        return super(ContactMechanism, cls).create(values)
+    def create(cls, vlist):
+        for values in vlist:
+            if values.get('address'):
+                address = Pool().get('party.address')(values.get('address'))
+                values['party'] = address.party
+        return super(ContactMechanism, cls).create(vlist)
