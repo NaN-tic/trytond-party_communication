@@ -10,8 +10,7 @@ medio de contacto no dispone de dirección se entiende que es un contacto
 general del tercero.
 
 A nivel técnico, existen también campos funcionales para obtener ciertos medios
-de contacto, por ejemplo, en el uso de `plantillas de correo electrónico 
-<../electronic_mail_template/index.html>`_:
+de contacto:
 
  * address.phone
  * address.mobile
