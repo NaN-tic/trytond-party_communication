@@ -18,8 +18,8 @@ de contacto:
  * address.email
  * address.skype
 
-Módulos que dependen
-====================
+Módulos de los que depende
+==========================
 
 Instalados
 ----------
