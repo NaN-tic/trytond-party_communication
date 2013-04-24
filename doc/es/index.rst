@@ -18,17 +18,6 @@ de contacto:
  * address.email
  * address.skype
 
-Módulos de los que depende
-==========================
-
-Instalados
-----------
-
-.. toctree::
-   :maxdepth: 1
-
-   /party/index
-
 Dependencias
 ------------
 
