@@ -17,10 +17,3 @@ de contacto:
  * address.fax
  * address.email
  * address.skype
-
-Dependencias
-------------
-
-* Terceros_
-
-.. _Terceros: ../party/index.html
