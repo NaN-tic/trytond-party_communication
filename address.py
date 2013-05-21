@@ -12,7 +12,7 @@ class Address:
     "Address"
     __name__ = 'party.address'
     contact_mechanism = fields.One2Many('party.contact_mechanism', 'address',
-        'Contact Mechanism')
+        'Contact Mechanism', readonly=True)
     phone = fields.Function(fields.Char('Phone'), 'get_address_mechanism')
     mobile = fields.Function(fields.Char('Mobile'), 'get_address_mechanism')
     fax = fields.Function(fields.Char('Fax'), 'get_address_mechanism')
