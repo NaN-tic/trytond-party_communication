@@ -12,8 +12,8 @@ general del tercero.
 A nivel técnico, existen también campos funcionales para obtener ciertos medios
 de contacto:
 
- * address.phone
- * address.mobile
- * address.fax
- * address.email
- * address.skype
+ * address.address_phone
+ * address.address_mobile
+ * address.address_fax
+ * address.address_email
+ * address.address_skype
