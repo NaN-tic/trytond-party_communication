@@ -6,23 +6,23 @@ msgctxt "field:party.address,contact_mechanism:"
 msgid "Contact Mechanism"
 msgstr "Mitjà de contacte"
 
-msgctxt "field:party.address,address_email:"
+msgctxt "field:party.address,email:"
 msgid "E-Mail"
 msgstr "Correu electrònic"
 
-msgctxt "field:party.address,address_fax:"
+msgctxt "field:party.address,fax:"
 msgid "Fax"
 msgstr "Fax"
 
-msgctxt "field:party.address,address_mobile:"
+msgctxt "field:party.address,mobile:"
 msgid "Mobile"
 msgstr "Mòbil"
 
-msgctxt "field:party.address,address_phone:"
+msgctxt "field:party.address,phone:"
 msgid "Phone"
 msgstr "Telèfon"
 
-msgctxt "field:party.address,address_skype:"
+msgctxt "field:party.address,skype:"
 msgid "Skype"
 msgstr "Skype"
 
