@@ -6,4 +6,7 @@ copyright notices and license terms. -->
     <xpath expr="/tree/field[@name=&quot;party&quot;]" position="after">
         <field name="address"/>
     </xpath>
+    <xpath expr="/tree/field[@name=&quot;value&quot;]" position="after">
+        <field name="active"/>
+    </xpath>
 </data>
