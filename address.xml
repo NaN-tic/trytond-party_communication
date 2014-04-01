@@ -13,7 +13,7 @@ The COPYRIGHT file at the top level of this repository contains the full copyrig
                 expr="/form/field[@name='subdivision']"
                 position="after">
                     <newline/>
-                    <field name="contact_mechanism" colspan="6" view_ids="party_communication.contact_mechanism_view_tree_sequence,party_communication.contact_mechanism_address_view_form"/>
+                    <field name="contact_mechanism" colspan="6" view_ids="party_communication.contact_mechanism_view_tree_sequence"/>
                 </xpath>
             </data>
             ]]> 
