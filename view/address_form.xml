@@ -5,7 +5,7 @@ copyright notices and license terms. -->
 <data>
     <xpath expr="/form/field[@name='subdivision']" position="after">
         <newline/>
-        <field name="contact_mechanism" colspan="6"
+        <field name="contact_mechanisms" colspan="6"
             view_ids="party_communication.contact_mechanism_view_tree_sequence"/>
     </xpath>
 </data>

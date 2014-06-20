@@ -3,8 +3,9 @@
 The COPYRIGHT file at the top level of this repository contains the full
 copyright notices and license terms. -->
 <data>
-    <xpath expr="/form/field[@name='party']" position="after">
+    <xpath expr="/form/field[@name='party']" position="replace">
+        <field name="party" colspan="2"/>
         <label name="address"/>
-        <field name="address"/>
+        <field name="address" colspan="2"/>
     </xpath>
 </data>
