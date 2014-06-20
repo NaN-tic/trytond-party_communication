@@ -11,8 +11,8 @@ __metaclass__ = PoolMeta
 class Address:
     "Address"
     __name__ = 'party.address'
-    contact_mechanism = fields.One2Many('party.contact_mechanism', 'address',
-        'Contact Mechanism', readonly=True)
+    contact_mechanisms = fields.One2Many('party.contact_mechanism', 'address',
+        'Contact Mechanisms', readonly=True)
     phone = fields.Function(fields.Char('Phone'),
         'get_address_contact_mechanism')
     mobile = fields.Function(fields.Char('Mobile'),
@@ -25,7 +25,7 @@ class Address:
         'get_address_contact_mechanism')
 
     def get_address_contact_mechanism(self, name):
-        for mechanism in self.contact_mechanism:
+        for mechanism in self.contact_mechanisms:
             if mechanism.type == name:
                 return mechanism.value
         return ''

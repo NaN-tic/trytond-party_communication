@@ -2,9 +2,9 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
-msgctxt "field:party.address,contact_mechanism:"
-msgid "Contact Mechanism"
-msgstr "Mitjà de contacte"
+msgctxt "field:party.address,contact_mechanisms:"
+msgid "Contact Mechanisms"
+msgstr "Mitjans de contacte"
 
 msgctxt "field:party.address,email:"
 msgid "E-Mail"
@@ -28,7 +28,15 @@ msgstr "Skype"
 
 msgctxt "field:party.contact_mechanism,address:"
 msgid "Address"
-msgstr "Adreces"
+msgstr "Adreça"
+
+msgctxt "model:ir.action,name:act_contact_mechanism_form"
+msgid "Contact mechanisms"
+msgstr "Mitjans de contacte"
+
+msgctxt "model:ir.ui.menu,name:menu_contact_mechanism_form"
+msgid "Contact mechanisms"
+msgstr "Mitjans de contacte"
 
 msgctxt "view:party.address:"
 msgid "Contact Mechanism"
