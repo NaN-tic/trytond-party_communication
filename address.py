@@ -23,9 +23,31 @@ class Address:
         'get_address_contact_mechanism')
     skype = fields.Function(fields.Char('Skype'),
         'get_address_contact_mechanism')
+    phones = fields.Function(fields.Char('Phones'),
+        'get_address_contact_mechanisms')
+    mobiles = fields.Function(fields.Char('Mobiles'),
+        'get_address_contact_mechanisms')
+    faxs = fields.Function(fields.Char('Faxs'),
+        'get_address_contact_mechanisms')
+    emails = fields.Function(fields.Char('E-Mails'),
+        'get_address_contact_mechanisms')
+    skypes = fields.Function(fields.Char('Skypes'),
+        'get_address_contact_mechanisms')
 
     def get_address_contact_mechanism(self, name):
         for mechanism in self.contact_mechanisms:
             if mechanism.type == name:
                 return mechanism.value
         return ''
+
+    def get_address_contact_mechanisms(self, name):
+        '''
+        Get all contact mechanisms of type name (without last 's') separated
+        by comma from the party address
+        '''
+        name = name[:-1]
+        values = []
+        for mechanism in self.contact_mechanisms:
+            if mechanism.type == name:
+                values.append(mechanism.value)
+        return ','.join(values)
