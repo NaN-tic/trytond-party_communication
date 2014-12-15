@@ -1,18 +1,28 @@
-#This file is part party_communication module for Tryton.
-#The COPYRIGHT file at the top level of this repository contains 
-#the full copyright notices and license terms.
+# This file is part party_communication module for Tryton.
+# The COPYRIGHT file at the top level of this repository contains
+# the full copyright notices and license terms.
 from trytond.model import fields
 from trytond.pool import PoolMeta
+from trytond.pyson import Bool, Eval
 
 __all__ = ['Address']
 __metaclass__ = PoolMeta
 
+STATES = {
+    'readonly': ~Eval('active'),
+    }
+
 
 class Address:
-    "Address"
     __name__ = 'party.address'
     contact_mechanisms = fields.One2Many('party.contact_mechanism', 'address',
-        'Contact Mechanisms', readonly=True)
+        'Contact Mechanisms', domain=[
+            ('party', '=', Eval('party')),
+            ], add_remove=[],
+        states={
+            'readonly': ~Eval('active'),
+            'invisible': Bool(Eval('_parent_party', 0)),
+            }, depends=['active', 'party'])
     phone = fields.Function(fields.Char('Phone'),
         'get_address_contact_mechanism')
     mobile = fields.Function(fields.Char('Mobile'),
