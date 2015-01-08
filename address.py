@@ -21,7 +21,6 @@ class Address:
             ], add_remove=[],
         states={
             'readonly': ~Eval('active'),
-            'invisible': Bool(Eval('_parent_party', 0)),
             }, depends=['active', 'party'])
     phone = fields.Function(fields.Char('Phone'),
         'get_address_contact_mechanism')
