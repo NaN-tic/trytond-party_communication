@@ -10,31 +10,51 @@ msgctxt "field:party.address,email:"
 msgid "E-Mail"
 msgstr "Correu electrònic"
 
+msgctxt "field:party.address,emails:"
+msgid "E-Mails"
+msgstr "Emails"
+
 msgctxt "field:party.address,fax:"
 msgid "Fax"
 msgstr "Fax"
+
+msgctxt "field:party.address,faxs:"
+msgid "Faxs"
+msgstr "Faxs"
 
 msgctxt "field:party.address,mobile:"
 msgid "Mobile"
 msgstr "Mòbil"
 
+msgctxt "field:party.address,mobiles:"
+msgid "Mobiles"
+msgstr "Mòbils"
+
 msgctxt "field:party.address,phone:"
 msgid "Phone"
 msgstr "Telèfon"
+
+msgctxt "field:party.address,phones:"
+msgid "Phones"
+msgstr "Telèfons"
 
 msgctxt "field:party.address,skype:"
 msgid "Skype"
 msgstr "Skype"
 
+msgctxt "field:party.address,skypes:"
+msgid "Skypes"
+msgstr "Skypes"
+
 msgctxt "field:party.contact_mechanism,address:"
 msgid "Address"
 msgstr "Adreça"
 
-msgctxt "model:ir.action,name:act_contact_mechanism_form"
+msgctxt "model:ir.action,name:"
 msgid "Contact mechanisms"
 msgstr "Mitjans de contacte"
 
-msgctxt "model:ir.ui.menu,name:menu_contact_mechanism_form"
+msgctxt "model:ir.ui.menu,name:"
 msgid "Contact mechanisms"
 msgstr "Mitjans de contacte"
 
