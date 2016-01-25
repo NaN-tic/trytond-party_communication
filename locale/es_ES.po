@@ -1,4 +1,4 @@
-# 
+#
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
@@ -49,14 +49,6 @@ msgstr "Skypes"
 msgctxt "field:party.contact_mechanism,address:"
 msgid "Address"
 msgstr "Dirección"
-
-msgctxt "model:ir.action,name:"
-msgid "Contact mechanisms"
-msgstr "Medios de contacto"
-
-msgctxt "model:ir.ui.menu,name:"
-msgid "Contact mechanisms"
-msgstr "Medios de contacto"
 
 msgctxt "view:party.address:"
 msgid "Contact Mechanism"
