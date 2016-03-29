@@ -6,7 +6,6 @@ from trytond.pool import PoolMeta
 from trytond.pyson import Eval
 
 __all__ = ['Address']
-__metaclass__ = PoolMeta
 
 STATES = {
     'readonly': ~Eval('active'),
@@ -14,6 +13,7 @@ STATES = {
 
 
 class Address:
+    __metaclass__ = PoolMeta
     __name__ = 'party.address'
     contact_mechanisms = fields.One2Many('party.contact_mechanism', 'address',
         'Contact Mechanisms', domain=[

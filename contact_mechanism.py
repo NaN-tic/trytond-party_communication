@@ -6,7 +6,6 @@ from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
 
 __all__ = ['ContactMechanism']
-__metaclass__ = PoolMeta
 
 STATES = {
     'readonly': ~Eval('active'),
@@ -14,7 +13,7 @@ STATES = {
 
 
 class ContactMechanism:
-    "Contact Mechanism"
+    __metaclass__ = PoolMeta
     __name__ = 'party.contact_mechanism'
     address = fields.Many2One('party.address', 'Address',
         domain=[('party', '=', Eval('party'))],
