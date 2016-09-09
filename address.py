@@ -47,7 +47,7 @@ class Address:
         for mechanism in self.contact_mechanisms:
             if mechanism.type == name:
                 return mechanism.value
-        return ''
+        return None
 
     def get_address_contact_mechanisms(self, name):
         '''
@@ -57,6 +57,6 @@ class Address:
         name = name[:-1]
         values = []
         for mechanism in self.contact_mechanisms:
-            if mechanism.type == name:
+            if mechanism.type == name and mechanism.value:
                 values.append(mechanism.value)
         return ','.join(values)
