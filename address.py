@@ -12,8 +12,7 @@ STATES = {
     }
 
 
-class Address:
-    __metaclass__ = PoolMeta
+class Address(metaclass=PoolMeta):
     __name__ = 'party.address'
     contact_mechanisms = fields.One2Many('party.contact_mechanism', 'address',
         'Contact Mechanisms', domain=[
