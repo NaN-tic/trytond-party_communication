@@ -2,7 +2,7 @@
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 from trytond.model import fields
-from trytond.pool import PoolMeta
+from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
 
 __all__ = ['Address']
@@ -44,9 +44,15 @@ class Address:
         'get_address_contact_mechanisms')
 
     def get_address_contact_mechanism(self, name):
-        for mechanism in self.contact_mechanisms:
-            if mechanism.type == name:
-                return mechanism.value
+        pool = Pool()
+        ContactMechanism = pool.get('party.contact_mechanism')
+
+        mechanisms = ContactMechanism.search([
+            ('address', '=', self),
+            ('type', '=', name),
+            ], order=[('write_date', 'DESC')], limit=1)
+        if mechanisms:
+            return mechanisms[0].value
         return None
 
     def get_address_contact_mechanisms(self, name):
