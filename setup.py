@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-# This file is part party_communication module for Tryton.
+# This file is part getmail module for Tryton.
 # The COPYRIGHT file at the top level of this repository contains
 # the full copyright notices and license terms.
 
@@ -9,6 +9,8 @@ import os
 import io
 from configparser import ConfigParser
 
+MODULE = 'party_communication'
+PREFIX = 'trytonzz'
 MODULE2PREFIX = {}
 
 
@@ -16,6 +18,7 @@ def read(fname):
     return io.open(
         os.path.join(os.path.dirname(__file__), fname),
         'r', encoding='utf-8').read()
+
 
 def get_require_version(name):
     if minor_version % 2:
@@ -36,10 +39,8 @@ version = info.get('version', '0.0.1')
 major_version, minor_version, _ = version.split('.', 2)
 major_version = int(major_version)
 minor_version = int(minor_version)
-name = 'trytonspain_party_communication'
-download_url = 'https://bitbucket.org/trytonspain/trytond-party_communication'
 
-requires = []
+requires = ['easyimap']
 for dep in info.get('depends', []):
     if not re.match(r'(ir|res)(\W|$)', dep):
         prefix = MODULE2PREFIX.get(dep, 'trytond')
@@ -52,22 +53,22 @@ if minor_version % 2:
     # Add development index for testing with proteus
     dependency_links.append('https://trydevpi.tryton.org/')
 
-setup(name=name,
+setup(name='%s_%s' % (PREFIX, MODULE),
     version=version,
-    description='Tryton Party Communication Module',
+    description='Tryton Getmail Module',
     long_description=read('README'),
-    author='TrytonSpain',
-    author_email='',
-    url='https://bitbucket.org/trytonspain/',
-    download_url=download_url,
+    author='Zikzakmedia SL',
+    author_email='zikzak@zikzakmedia.com',
+    url='https://bitbucket.org/zikzakmedia/',
+    download_url='https://bitbucket.org/zikzakmedia/trytond-%s' % MODULE,
     keywords='',
-    package_dir={'trytond.modules.party_communication': '.'},
+    package_dir={'trytond.modules.%s' % MODULE: '.'},
     packages=[
-        'trytond.modules.party_communication',
-        'trytond.modules.party_communication.tests',
+        'trytond.modules.%s' % MODULE,
+        'trytond.modules.%s.tests' % MODULE,
         ],
     package_data={
-        'trytond.modules.party_communication': (info.get('xml', [])
+        'trytond.modules.%s' % MODULE: (info.get('xml', [])
             + ['tryton.cfg', 'view/*.xml', 'locale/*.po', '*.odt',
                 'icons/*.svg', 'tests/*.rst']),
         },
@@ -94,9 +95,9 @@ setup(name=name,
         'Natural Language :: Spanish',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.3',
         'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
+        'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
         'Topic :: Office/Business',
@@ -107,8 +108,8 @@ setup(name=name,
     zip_safe=False,
     entry_points="""
     [trytond.modules]
-    party_communication = trytond.modules.party_communication
-    """,
+    %s = trytond.modules.%s
+    """ % (MODULE, MODULE),
     test_suite='tests',
     test_loader='trytond.test_loader:Loader',
     tests_require=tests_require,
