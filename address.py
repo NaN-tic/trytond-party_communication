@@ -22,15 +22,15 @@ class Address(metaclass=PoolMeta):
             'readonly': ~Eval('active'),
             }, depends=['active', 'party'])
     phone = fields.Function(fields.Char('Phone'),
-        'get_address_contact_mechanism')
+        'get_address_contact_mechanism', setter='set_address_contact_mechanism')
     mobile = fields.Function(fields.Char('Mobile'),
-        'get_address_contact_mechanism')
+        'get_address_contact_mechanism', setter='set_address_contact_mechanism')
     fax = fields.Function(fields.Char('Fax'),
-        'get_address_contact_mechanism')
+        'get_address_contact_mechanism', setter='set_address_contact_mechanism')
     email = fields.Function(fields.Char('E-Mail'),
-        'get_address_contact_mechanism')
+        'get_address_contact_mechanism', setter='set_address_contact_mechanism')
     skype = fields.Function(fields.Char('Skype'),
-        'get_address_contact_mechanism')
+        'get_address_contact_mechanism', setter='set_address_contact_mechanism')
     phones = fields.Function(fields.Char('Phones'),
         'get_address_contact_mechanisms')
     mobiles = fields.Function(fields.Char('Mobiles'),
@@ -85,3 +85,23 @@ class Address(metaclass=PoolMeta):
             if mechanism.type == name and mechanism.value:
                 values.append(mechanism.value)
         return ','.join(values)
+
+    @classmethod
+    def set_address_contact_mechanism(cls, addresses, name, value):
+        ContactMechanism = Pool().get('party.contact_mechanism')
+
+        for address in addresses:
+            cm = ContactMechanism.search([
+                    ('address', '=', address.id),
+                    ('type', '=', name),
+                    ], limit=1)
+            if cm and value:
+                ContactMechanism.write([cm[0]], {'value': value})
+            elif cm and not value:
+                ContactMechanism.delete([cm[0]])
+            else:
+                ContactMechanism.create([{
+                            'address': address,
+                            'type': name,
+                            'value': value,
+                            }])
