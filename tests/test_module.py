@@ -1,14 +1,13 @@
-# This file is part of the party_communication module for Tryton.
-# The COPYRIGHT file at the top level of this repository contains the full
-# copyright notices and license terms.
-import unittest
-import trytond.tests.test_tryton
+
+# This file is part of Tryton.  The COPYRIGHT file at the top level of
+# this repository contains the full copyright notices and license terms.
+
 from trytond.tests.test_tryton import ModuleTestCase, with_transaction
 from trytond.pool import Pool
 
 
-class PartycommunicationTestCase(ModuleTestCase):
-    'Test Party Communication module'
+class PartyCommunicationTestCase(ModuleTestCase):
+    'Test PartyCommunication module'
     module = 'party_communication'
 
     @with_transaction()
@@ -39,8 +38,5 @@ class PartycommunicationTestCase(ModuleTestCase):
         address.save()
         self.assertEqual(address.email, None)
 
-def suite():
-    suite = trytond.tests.test_tryton.suite()
-    suite.addTests(unittest.TestLoader().loadTestsFromTestCase(
-        PartycommunicationTestCase))
-    return suite
+
+del ModuleTestCase
