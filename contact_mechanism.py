@@ -7,17 +7,13 @@ from trytond.pyson import Eval
 
 __all__ = ['ContactMechanism']
 
-STATES = {
-    'readonly': ~Eval('active'),
-    }
-
 
 class ContactMechanism(metaclass=PoolMeta):
     __name__ = 'party.contact_mechanism'
     address = fields.Many2One('party.address', 'Address',
         domain=[('party', '=', Eval('party'))],
-        ondelete='CASCADE', states=STATES, select=True,
-        depends=['active', 'party'])
+        ondelete='CASCADE', select=True,
+        depends=['party'])
 
     @classmethod
     def create(cls, vlist):
