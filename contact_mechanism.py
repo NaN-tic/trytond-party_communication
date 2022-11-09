@@ -12,7 +12,7 @@ class ContactMechanism(metaclass=PoolMeta):
     __name__ = 'party.contact_mechanism'
     address = fields.Many2One('party.address', 'Address',
         domain=[('party', '=', Eval('party'))],
-        ondelete='CASCADE', select=True,
+        ondelete='CASCADE',
         depends=['party'])
 
     @classmethod
