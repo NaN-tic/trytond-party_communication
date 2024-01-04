@@ -17,6 +17,7 @@ class ContactMechanism(metaclass=PoolMeta):
 
     @classmethod
     def create(cls, vlist):
+        vlist = [x.copy() for x in vlist]
         for values in vlist:
             if values.get('address'):
                 address = Pool().get('party.address')(values.get('address'))
