@@ -13,7 +13,7 @@ class Address(metaclass=PoolMeta):
     contact_mechanisms = fields.One2Many('party.contact_mechanism', 'address',
         'Contact Mechanisms', domain=[
             ('party', '=', Eval('party')),
-            ], add_remove=[], depends=['party'])
+            ], add_remove=[])
     phone = fields.Function(fields.Char('Phone'),
         'get_address_contact_mechanism', setter='set_address_contact_mechanism')
     mobile = fields.Function(fields.Char('Mobile'),
