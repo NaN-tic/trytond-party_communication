@@ -11,9 +11,7 @@ __all__ = ['ContactMechanism']
 class ContactMechanism(metaclass=PoolMeta):
     __name__ = 'party.contact_mechanism'
     address = fields.Many2One('party.address', 'Address',
-        domain=[('party', '=', Eval('party'))],
-        ondelete='CASCADE',
-        depends=['party'])
+        domain=[('party', '=', Eval('party'))], ondelete='CASCADE')
 
     @classmethod
     def create(cls, vlist):
