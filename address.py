@@ -30,36 +30,8 @@ class Address(metaclass=PoolMeta):
         'get_address_contact_mechanisms')
 
     def get_address_contact_mechanism(self, name):
-        pool = Pool()
-        ContactMechanism = pool.get('party.contact_mechanism')
-
-        mechanisms = ContactMechanism.search([
-            ('address', '=', self),
-            ('type', '=', name),
-            ('write_date', '!=', None),
-            ], order=[('write_date', 'DESC')], limit=1)
-        mechanism_write_date = (mechanisms[0] if mechanisms else None)
-
-        mechanisms = ContactMechanism.search([
-            ('address', '=', self),
-            ('type', '=', name),
-            ], order=[('create_date', 'DESC')], limit=1)
-        mechanism_create_date = (mechanisms[0] if mechanisms else None)
-
-        mechanism_value = None
-        if mechanism_write_date and mechanism_create_date:
-            if (mechanism_create_date.create_date
-                    and mechanism_write_date.write_date
-                    and (mechanism_write_date.write_date >
-                    mechanism_create_date.create_date)):
-                mechanism_value = mechanism_write_date.value
-            else:
-                mechanism_value = mechanism_create_date.value
-        elif mechanism_create_date and not mechanism_write_date:
-            mechanism_value = mechanism_create_date.value
-        elif not mechanism_create_date and mechanism_write_date:
-            mechanism_value = mechanism_write_date.value
-        return mechanism_value
+        contact_mechanism = self.contact_mechanism_get(name, usage='is_default')
+        return contact_mechanism and contact_mechanism.value
 
     def get_address_contact_mechanisms(self, name):
         '''

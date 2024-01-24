@@ -8,6 +8,7 @@ from trytond.pyson import Eval
 
 class ContactMechanism(metaclass=PoolMeta):
     __name__ = 'party.contact_mechanism'
+    is_default = fields.Boolean('Default')
 
     @classmethod
     def create(cls, vlist):

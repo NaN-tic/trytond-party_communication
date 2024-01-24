@@ -6,5 +6,7 @@ copyright notices and license terms. -->
     <xpath expr="/form/field[@name='party']" position="after">
         <label name="address"/>
         <field name="address" colspan="2"/>
+        <label name="is_default"/>
+        <field name="is_default"/>  
     </xpath>
 </data>

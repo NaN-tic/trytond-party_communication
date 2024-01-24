@@ -16,6 +16,8 @@ class PartyCommunicationTestCase(ModuleTestCase):
         pool = Pool()
         Party = pool.get('party.party')
         Address = pool.get('party.address')
+        ContactMechanism = pool.get('party.contact_mechanism')
+
         party1, = Party.create([{
                     'name': 'Party 1',
                     }])
@@ -32,15 +34,26 @@ class PartyCommunicationTestCase(ModuleTestCase):
         self.assertEqual(address.email, 'demo@demo.com')
         self.assertEqual(address.phone, '+34935531803')
 
-        c1, c2 = address.contact_mechanisms
+        c1, _ = address.contact_mechanisms
         self.assertEqual(c1.address, address)
 
         address.email = 'hello@demo.com'
         address.save()
         self.assertEqual(address.email, 'hello@demo.com')
 
+        c3 = ContactMechanism()
+        c3.address = address
+        c3.type = 'email'
+        c3.value = 'suport@demo.com'
+        c3.is_default = True
+        c3.save()
+
+        self.assertEqual(len(address.contact_mechanisms), 3)
+        self.assertEqual(address.party, party1)
+        self.assertEqual(address.email, 'suport@demo.com')
+
         address.email = ''
         address.save()
-        self.assertEqual(address.email, None)
+        self.assertEqual(len(address.contact_mechanisms), 2)
 
 del ModuleTestCase

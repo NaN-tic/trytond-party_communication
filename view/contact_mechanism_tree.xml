@@ -8,5 +8,6 @@ copyright notices and license terms. -->
     </xpath>
     <xpath expr="/tree/field[@name='value']" position="after">
         <field name="active"/>
+        <field name="is_default"/>
     </xpath>
 </data>
