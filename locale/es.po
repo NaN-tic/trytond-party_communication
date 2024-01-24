@@ -2,10 +2,6 @@
 msgid ""
 msgstr "Content-Type: text/plain; charset=utf-8\n"
 
-msgctxt "field:party.address,contact_mechanisms:"
-msgid "Contact Mechanisms"
-msgstr "Medios de contacto"
-
 msgctxt "field:party.address,email:"
 msgid "E-Mail"
 msgstr "Correo electrónico"
@@ -46,9 +42,9 @@ msgctxt "field:party.address,skypes:"
 msgid "Skypes"
 msgstr "Skypes"
 
-msgctxt "field:party.contact_mechanism,address:"
-msgid "Address"
-msgstr "Dirección"
+msgctxt "field:party.contact_mechanism,is_default:"
+msgid "Default"
+msgstr "Per defecte"
 
 msgctxt "view:party.address:"
 msgid "Contact Mechanism"

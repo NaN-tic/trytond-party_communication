@@ -3,10 +3,12 @@
 The COPYRIGHT file at the top level of this repository contains the full
 copyright notices and license terms. -->
 <data>
-    <xpath expr="/form/field[@name='party']" position="after">
+    <xpath expr="/form/field[@name='name']" position="before">
         <label name="address"/>
-        <field name="address" colspan="2"/>
+        <field name="address"/>
+    </xpath>
+    <xpath expr="/form/group[@id='checkboxes']" position="inside">
         <label name="is_default"/>
-        <field name="is_default"/>  
+        <field name="is_default"/>
     </xpath>
 </data>
