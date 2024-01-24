@@ -5,15 +5,9 @@ from trytond.model import fields
 from trytond.pool import Pool, PoolMeta
 from trytond.pyson import Eval
 
-__all__ = ['Address']
-
 
 class Address(metaclass=PoolMeta):
     __name__ = 'party.address'
-    contact_mechanisms = fields.One2Many('party.contact_mechanism', 'address',
-        'Contact Mechanisms', domain=[
-            ('party', '=', Eval('party')),
-            ], add_remove=[], depends=['party'])
     phone = fields.Function(fields.Char('Phone'),
         'get_address_contact_mechanism', setter='set_address_contact_mechanism')
     mobile = fields.Function(fields.Char('Mobile'),

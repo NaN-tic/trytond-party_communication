@@ -28,7 +28,12 @@ class PartyCommunicationTestCase(ModuleTestCase):
                     'phone': '+34935531803'
                     }])
         self.assertTrue(address.id)
+        self.assertEqual(len(address.contact_mechanisms), 2)
         self.assertEqual(address.email, 'demo@demo.com')
+        self.assertEqual(address.phone, '+34935531803')
+
+        c1, c2 = address.contact_mechanisms
+        self.assertEqual(c1.address, address)
 
         address.email = 'hello@demo.com'
         address.save()
@@ -37,6 +42,5 @@ class PartyCommunicationTestCase(ModuleTestCase):
         address.email = ''
         address.save()
         self.assertEqual(address.email, None)
-
 
 del ModuleTestCase
